@@ -92,6 +92,15 @@ func getClient(config *Config) (*etcd.Client, error) {
 	return client, nil
 }
 
+func inStringSlice(slice []string, look string) bool {
+	for _, s := range slice {
+		if s == look {
+			return true
+		}
+	}
+	return false
+}
+
 // Set modifies the current environment with variables retrieved from etcd. Set
 // will not overwrite existing variables.
 // The only required environment variable is $ETCD_ENDPOINT.
@@ -104,7 +113,7 @@ func getClient(config *Config) (*etcd.Client, error) {
 func Set(service string) error {
 	etcdEndpoint := os.Getenv("ETCD_ENDPOINT")
 	if len(etcdEndpoint) == 0 {
-		return nil
+		return errors.New("ETCD_ENDPOINT must be set and probably to the IP of docker0")
 	}
 
 	config := &Config{
@@ -130,9 +139,19 @@ func Set(service string) error {
 		return err
 	}
 
+	debugOn := false
+	if keyPairs["LOG_LEVEL"] == "DEBUG" {
+		debugOn = true
+	}
+	if inStringSlice(os.Args, "DEBUG") {
+		debugOn = true
+	}
 	for key, value := range keyPairs {
 		if len(os.Getenv(key)) == 0 {
 			os.Setenv(key, value)
+			if debugOn {
+				log.Printf("[DEBUG] %v=%v", key, value)
+			}
 		}
 	}
 
@@ -222,6 +241,5 @@ func addKeyPair(config *Config, keyPairs KeyPairs, dir string, node *etcd.Node) 
 		key = strings.ToUpper(key)
 	}
 
-	log.Printf("[DEBUG] Adding keyPairs[%v] = %v", key, node.Value)
 	keyPairs[key] = node.Value
 }
