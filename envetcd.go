@@ -104,7 +104,7 @@ func getClient(config *Config) (*etcd.Client, error) {
 func Set(service string) error {
 	etcdEndpoint := os.Getenv("ETCD_ENDPOINT")
 	if len(etcdEndpoint) == 0 {
-		return nil
+		return errors.New("ETCD_ENDPOINT must be set and probably to the IP of docker0")
 	}
 
 	config := &Config{
