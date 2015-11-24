@@ -6,7 +6,6 @@ import (
 	"github.com/codegangsta/cli"
 	"github.com/zvelo/envetcd"
 	"github.com/zvelo/zvelo-services/util"
-	"github.com/zvelo/zvelo-services/zenv"
 	"github.com/zvelo/zvelo-services/zlog"
 )
 
@@ -36,7 +35,7 @@ func init() {
 	app.Authors = []cli.Author{
 		{Name: "Joshua Rubin", Email: "jrubin@zvelo.com"},
 	}
-	app.Flags = append(append(append(zlog.Flags, zenv.Flag), util.EtcdFlags...), []cli.Flag{
+	app.Flags = append(append(zlog.Flags, util.EtcdFlags...), []cli.Flag{
 		cli.StringFlag{
 			Name:   "hostname",
 			EnvVar: "HOSTNAME",
@@ -49,28 +48,28 @@ func init() {
 			Usage:  "system name for system specific configuration",
 		},
 		cli.StringFlag{
-			Name:   "service, s",
+			Name:   "service",
 			EnvVar: "ENVETCD_SERVICE",
 			Usage:  "service name for service specific configuration",
 		},
 		cli.StringFlag{
-			Name:   "prefix, p",
+			Name:   "prefix",
 			EnvVar: "ENVETCD_PREFIX",
 			Value:  "/config",
 			Usage:  "etcd prefix for all keys",
 		},
 		cli.StringFlag{
-			Name:   "write-env, w",
+			Name:   "write-env",
 			EnvVar: "ENVETCD_WRITE_ENV",
 			Usage:  "don't run a command, just write the environment to a 'sourcable' file",
 		},
 		cli.StringFlag{
-			Name:   "output, o",
+			Name:   "output",
 			EnvVar: "ENVETCD_OUTPUT",
 			Usage:  "write stdout from the command to this file",
 		},
 		cli.StringSliceFlag{
-			Name:   "templates, t",
+			Name:   "templates",
 			EnvVar: "ENVETCD_TEMPLATES",
 			Usage: "replace values in this template file using those pulled from etcd," +
 				"filename should end in '.tmpl'," +
@@ -79,7 +78,7 @@ func init() {
 			Value: &templates,
 		},
 		cli.BoolFlag{
-			Name:   "clean-env, c",
+			Name:   "clean-env",
 			EnvVar: "ENVETCD_CLEAN_ENV",
 			Usage:  "don't inherit any environment variables other than those pulled from etcd",
 		},
@@ -99,7 +98,7 @@ func init() {
 }
 
 func setup(c *cli.Context) error {
-	zlog.Init(c, zenv.Init(c))
+	zlog.Init(c)
 
 	config = configT{
 		EnvEtcd: &envetcd.Config{
