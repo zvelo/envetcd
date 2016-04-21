@@ -4,10 +4,10 @@ import (
 	"os"
 
 	"github.com/codegangsta/cli"
-	"github.com/zvelo/envetcd"
-	"github.com/zvelo/zvelo-services/util"
-	"github.com/zvelo/zvelo-services/zenv"
-	"github.com/zvelo/zvelo-services/zlog"
+	"zvelo.io/envetcd"
+	"zvelo.io/zvelo-services/util"
+	"zvelo.io/zvelo-services/zenv"
+	"zvelo.io/zvelo-services/zlog"
 )
 
 const (
@@ -36,7 +36,7 @@ func init() {
 	app.Authors = []cli.Author{
 		{Name: "Joshua Rubin", Email: "jrubin@zvelo.com"},
 	}
-	app.Flags = append(append(append(zlog.Flags, zenv.Flag), util.EtcdFlags...), []cli.Flag{
+	app.Flags = append(append(append(zlog.Flags, zenv.Flags...), util.EtcdFlags...), []cli.Flag{
 		cli.StringFlag{
 			Name:   "hostname",
 			EnvVar: "HOSTNAME",
@@ -99,7 +99,7 @@ func init() {
 }
 
 func setup(c *cli.Context) error {
-	zlog.Init(c, zenv.Init(c))
+	zlog.Init(c)
 
 	config = configT{
 		EnvEtcd: &envetcd.Config{

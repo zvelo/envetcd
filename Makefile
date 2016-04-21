@@ -1,4 +1,4 @@
-ALL_DIRS=$(shell find . \( -path ./Godeps -o -path ./.git \) -prune -o -type d -print)
+ALL_DIRS=$(shell find . \( -path ./Godeps -o -path ./vendor -o -path ./.git \) -prune -o -type d -print)
 GO_FILES=$(foreach dir, $(ALL_DIRS), $(wildcard $(dir)/*.go))
 GO_PKGS=$(shell go list ./...)
 
@@ -15,14 +15,14 @@ lint:
 	go vet ./...
 
 test: $(GO_FILES)
-	godep go test -v ./...
+	go test -v ./...
 
 coverage: .acc.out
 
 .acc.out: $(GO_FILES)
 	@echo "mode: set" > .acc.out
 	@for pkg in $(GO_PKGS); do \
-		cmd="godep go test -v -coverprofile=profile.out $$pkg"; \
+		cmd="go test -v -coverprofile=profile.out $$pkg"; \
 		eval $$cmd; \
 		if test $$? -ne 0; then \
 			exit 1; \
@@ -44,13 +44,13 @@ coveralls: .coveralls-stamp
 build: $(EXECUTABLE)
 
 $(EXECUTABLE): $(GO_FILES)
-	@godep go build -v -o $(EXECUTABLE) ./cmd/envetcd
+	@go build -v -o $(EXECUTABLE) ./cmd/envetcd
 
 $(EXECUTABLE)-linux-amd64: $(GO_FILES)
-	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 godep go build -a -v -tags netgo -installsuffix netgo -o $(EXECUTABLE)-linux-amd64 ./cmd/envetcd
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -v -tags netgo -installsuffix netgo -o $(EXECUTABLE)-linux-amd64 ./cmd/envetcd
 
 $(EXECUTABLE)-darwin-amd64: $(GO_FILES)
-	@CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 godep go build -a -v -tags netgo -installsuffix netgo -o $(EXECUTABLE)-darwin-amd64 ./cmd/envetcd
+	@CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -a -v -tags netgo -installsuffix netgo -o $(EXECUTABLE)-darwin-amd64 ./cmd/envetcd
 
 release: release-linux-amd64 release-darwin-amd64
 
@@ -93,5 +93,5 @@ clean:
 		./release
 
 save:
-	@rm -rf ./Godeps
+	@rm -rf ./Godeps ./vendor
 	godep save ./...

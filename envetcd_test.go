@@ -6,9 +6,8 @@ import (
 
 	"github.com/coreos/etcd/pkg/transport"
 	"github.com/coreos/go-etcd/etcd"
-	"github.com/zvelo/zvelo-services/util"
-
 	. "github.com/smartystreets/goconvey/convey"
+	"zvelo.io/zvelo-services/util"
 )
 
 var (

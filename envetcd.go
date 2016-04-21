@@ -13,10 +13,9 @@ import (
 	"text/template"
 
 	log "github.com/Sirupsen/logrus"
-
 	"github.com/coreos/go-etcd/etcd"
-	"github.com/zvelo/zvelo-services/util"
-	"github.com/zvelo/zvelo-services/zlog"
+	"zvelo.io/zvelo-services/util"
+	"zvelo.io/zvelo-services/zlog"
 )
 
 // order of precedence:

@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/zvelo/envetcd"
-	"github.com/zvelo/zvelo-services/util"
+	"zvelo.io/envetcd"
+	"zvelo.io/zvelo-services/util"
 )
 
 func init() {

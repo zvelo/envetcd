@@ -1,71 +1,129 @@
 {
-	"ImportPath": "github.com/zvelo/envetcd",
-	"GoVersion": "go1.4.2",
+	"ImportPath": "zvelo.io/envetcd",
+	"GoVersion": "go1.6",
+	"GodepVersion": "v62",
 	"Packages": [
 		"./..."
 	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/Sirupsen/logrus",
-			"Comment": "v0.8.3-3-g07d998d",
-			"Rev": "07d998d174c4e2dc90e2f1989a20724220bca1ff"
+			"Comment": "v0.10.0-14-g081307d",
+			"Rev": "081307d9bc1364753142d5962fc1d795c742baaf"
 		},
 		{
 			"ImportPath": "github.com/afex/hystrix-go/hystrix",
-			"Rev": "6656046bf35de1147db8314d906fc10cac81f135"
+			"Rev": "9351b724be3950ef0ca82c53f817dcd33947e95e"
+		},
+		{
+			"ImportPath": "github.com/afex/hystrix-go/hystrix/metric_collector",
+			"Rev": "9351b724be3950ef0ca82c53f817dcd33947e95e"
+		},
+		{
+			"ImportPath": "github.com/afex/hystrix-go/hystrix/rolling",
+			"Rev": "9351b724be3950ef0ca82c53f817dcd33947e95e"
 		},
 		{
 			"ImportPath": "github.com/codegangsta/cli",
-			"Comment": "1.2.0-107-g942282e",
-			"Rev": "942282e931e8286aa802a30b01fa7e16befb50f3"
+			"Comment": "1.2.0-237-g71f57d3",
+			"Rev": "71f57d300dd6a780ac1856c005c4b518cfd498ec"
 		},
 		{
 			"ImportPath": "github.com/coreos/etcd/pkg/transport",
-			"Comment": "v2.1.0-alpha.0-133-g7ad2b22",
-			"Rev": "7ad2b22498a0f7238d7840799795fee05f04657c"
+			"Comment": "v2.3.1",
+			"Rev": "2b67f5256a25b79603290e0a401a76f0e551d8c1"
 		},
 		{
 			"ImportPath": "github.com/coreos/go-etcd/etcd",
-			"Comment": "v2.0.0-7-g73a8ef7",
-			"Rev": "73a8ef737e8ea002281a28b4cb92a1de121ad4c6"
+			"Comment": "v2.0.0-38-g003851b",
+			"Rev": "003851be7bb0694fe3cc457a49529a19388ee7cf"
 		},
 		{
 			"ImportPath": "github.com/golang/protobuf/proto",
-			"Rev": "ab974be44dc3b7b8a1fb306fb32fe9b9f3864b3d"
+			"Rev": "bf531ff1a004f24ee53329dfd5ce0b41bfdc17df"
+		},
+		{
+			"ImportPath": "github.com/gopherjs/gopherjs/js",
+			"Comment": "go1.5-45-g19e100e",
+			"Rev": "19e100e9652485a76176bc5fd2669f57d3a2743c"
 		},
 		{
 			"ImportPath": "github.com/jtolds/gls",
-			"Rev": "9a4a02dbe491bef4bab3c24fd9f3087d6c4c6690"
+			"Comment": "v4.2.0",
+			"Rev": "8ddce2a84170772b95dd5d576c48d517b22cac63"
+		},
+		{
+			"ImportPath": "github.com/mreiferson/go-snappystream",
+			"Comment": "v0.2.3",
+			"Rev": "028eae7ab5c4c9e2d1cb4c4ca1e53259bbe7e504"
+		},
+		{
+			"ImportPath": "github.com/mreiferson/go-snappystream/snappy-go",
+			"Comment": "v0.2.3",
+			"Rev": "028eae7ab5c4c9e2d1cb4c4ca1e53259bbe7e504"
+		},
+		{
+			"ImportPath": "github.com/nsqio/go-nsq",
+			"Comment": "v1.0.5-9-g642a3f9",
+			"Rev": "642a3f9935f12cb3b747294318d730f56f4c34b4"
 		},
 		{
 			"ImportPath": "github.com/smartystreets/assertions",
-			"Comment": "1.5.0-385-gf84dc26",
-			"Rev": "f84dc26dce9c465dec172485e01faf2e53517a13"
+			"Comment": "1.6.0-2-g2d74a41",
+			"Rev": "2d74a419fbe076f8c76ed8b1c7c633a676c5dc63"
+		},
+		{
+			"ImportPath": "github.com/smartystreets/assertions/internal/go-render/render",
+			"Comment": "1.6.0-2-g2d74a41",
+			"Rev": "2d74a419fbe076f8c76ed8b1c7c633a676c5dc63"
+		},
+		{
+			"ImportPath": "github.com/smartystreets/assertions/internal/oglematchers",
+			"Comment": "1.6.0-2-g2d74a41",
+			"Rev": "2d74a419fbe076f8c76ed8b1c7c633a676c5dc63"
 		},
 		{
 			"ImportPath": "github.com/smartystreets/goconvey/convey",
-			"Comment": "1.5.0-392-g68c2220",
-			"Rev": "68c22200a00354e2a63e1a0ade46eadd20e00333"
+			"Comment": "1.6.1-20-gcc5d85f",
+			"Rev": "cc5d85f4f15bd2163abf0fe6e6753356dde72aa2"
+		},
+		{
+			"ImportPath": "github.com/smartystreets/goconvey/convey/gotest",
+			"Comment": "1.6.1-20-gcc5d85f",
+			"Rev": "cc5d85f4f15bd2163abf0fe6e6753356dde72aa2"
+		},
+		{
+			"ImportPath": "github.com/smartystreets/goconvey/convey/reporting",
+			"Comment": "1.6.1-20-gcc5d85f",
+			"Rev": "cc5d85f4f15bd2163abf0fe6e6753356dde72aa2"
 		},
 		{
 			"ImportPath": "github.com/ugorji/go/codec",
-			"Rev": "03e33114d4d60a1f37150325e15f51b0fa6fc4f6"
+			"Rev": "a396ed22fc049df733440d90efe17475e3929ccb"
 		},
 		{
 			"ImportPath": "github.com/unrolled/render",
-			"Rev": "20811297fc3c80743d1aad450c983c6df08ae436"
+			"Rev": "198ad4d8b8a4612176b804ca10555b222a086b40"
 		},
 		{
-			"ImportPath": "github.com/zvelo/zvelo-services/util",
-			"Rev": "730eb0561494a13028fb8692f440113899ac385d"
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "815d315ead425c4365077d904a2331ee9e179820"
 		},
 		{
-			"ImportPath": "github.com/zvelo/zvelo-services/zenv",
-			"Rev": "730eb0561494a13028fb8692f440113899ac385d"
+			"ImportPath": "golang.org/x/sys/unix",
+			"Rev": "f64b50fbea64174967a8882830d621a18ee1548e"
 		},
 		{
-			"ImportPath": "github.com/zvelo/zvelo-services/zlog",
-			"Rev": "730eb0561494a13028fb8692f440113899ac385d"
+			"ImportPath": "zvelo.io/zvelo-services/util",
+			"Rev": "5e45e6351895055da6afe0164b0deb47e2c1e9f1"
+		},
+		{
+			"ImportPath": "zvelo.io/zvelo-services/zenv",
+			"Rev": "5e45e6351895055da6afe0164b0deb47e2c1e9f1"
+		},
+		{
+			"ImportPath": "zvelo.io/zvelo-services/zlog",
+			"Rev": "5e45e6351895055da6afe0164b0deb47e2c1e9f1"
 		}
 	]
 }

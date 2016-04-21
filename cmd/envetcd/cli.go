@@ -6,9 +6,8 @@ import (
 	"strings"
 
 	log "github.com/Sirupsen/logrus"
-
 	"github.com/codegangsta/cli"
-	"github.com/zvelo/envetcd"
+	"zvelo.io/envetcd"
 )
 
 // Exit codes are int values that represent an exit code for a particular error.

@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"syscall"
 
-	"github.com/zvelo/envetcd"
+	"zvelo.io/envetcd"
 )
 
 type runner struct {
