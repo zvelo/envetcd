@@ -8,6 +8,8 @@ endif
 
 EXECUTABLE ?= envetcd
 
+export GO15VENDOREXPERIMENT=1
+
 all: build
 
 lint:
