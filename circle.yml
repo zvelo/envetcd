@@ -8,10 +8,10 @@ machine:
 checkout:
   post:
     ## these commands are required to configure the go environment properly
-    - mkdir -p $HOME/.go_workspace/src/_/home/ubuntu
-    - mkdir -p $HOME/.go_workspace/src/github.com/$CIRCLE_PROJECT_USERNAME
-    - ln -sf `pwd` $HOME/.go_workspace/src/_/home/ubuntu
-    - ln -sf `pwd` $HOME/.go_workspace/src/github.com/$CIRCLE_PROJECT_USERNAME
+    - rm -rf $HOME/.go_workspace/src/zvelo.io/$CIRCLE_PROJECT_REPONAME
+    - mkdir -p $HOME/.go_workspace/src/zvelo.io
+    - mv $HOME/$CIRCLE_PROJECT_REPONAME $HOME/.go_workspace/src/zvelo.io/
+    - ln -s $HOME/.go_workspace/src/zvelo.io/$CIRCLE_PROJECT_REPONAME $HOME/$CIRCLE_PROJECT_REPONAME
 
 dependencies:
   cache_directories:
